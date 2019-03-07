@@ -71,10 +71,11 @@ class MyScene extends CGFscene {
         // ---- BEGIN Primitive drawing section
 
         this.pushMatrix();
-        this.translate(0.5,0.0,0.5);
+        this.translate(9.5/2,0.0,9.5/2);
         this.rotate(-Math.PI/2,1.0,0.0,0.0);
         this.pushMatrix();
-        this.translate(0.0,0.0,-0.5);
+        this.scale(9.5,9.5,0.5);
+        this.translate(0.0,0.0,-0.51);
         this.cube.display();
         this.popMatrix();
         this.tangram.display();
