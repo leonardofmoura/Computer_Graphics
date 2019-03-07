@@ -26,7 +26,10 @@ class MyScene extends CGFscene {
 
         //Objects connected to MyInterface
         this.displayAxis = true;
+        this.displayTangram = true;
+        this.displayBase = true;
         this.scaleFactor = 1;
+        this.totalScale = 1;
     }
     initLights() {
         this.lights[0].setPosition(15, 2, 5, 1);
@@ -69,16 +72,22 @@ class MyScene extends CGFscene {
 
 
         // ---- BEGIN Primitive drawing section
+        
 
         this.pushMatrix();
         this.translate(9.5/2,0.0,9.5/2);
         this.rotate(-Math.PI/2,1.0,0.0,0.0);
         this.pushMatrix();
         this.scale(9.5,9.5,0.5);
-        this.translate(0.0,0.0,-0.51);
-        this.cube.display();
+        this.translate(0.0,0.0,-0.52);
+        if (this.displayBase) {
+            this.cube.display();
+        }
         this.popMatrix();
-        this.tangram.display();
+        if (this.displayTangram) {
+            this.tangram.display();
+        }
+
 
         // ---- END Primitive drawing section
     }
