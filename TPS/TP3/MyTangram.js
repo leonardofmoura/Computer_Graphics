@@ -13,6 +13,8 @@ class MyTangram extends CGFobject {
         this.parallelogram = new MyParallelogram(scene);
         this.triangle = new MyTriangle(scene);
         this.striangle = new MyTriangleSmall(scene);
+
+        this.objects = [this.topsquare,this.btriangle,this.parallelogram,this.triangle,this.striangle];
 	}
     display() {
         //move the top square

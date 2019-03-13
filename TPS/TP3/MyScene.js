@@ -170,9 +170,25 @@ class MyScene extends CGFscene {
         this.scale(this.scaleFactor,this.scaleFactor,this.scaleFactor);
         
         if (this.displayNormals)
-            this.objects[this.selectedObject].enableNormalViz();
-        else
-            this.objects[this.selectedObject].disableNormalViz();
+            if (this.selectedObject == 3) {
+                for (var i = 0; i < this.tangram.objects.length; i++) {
+                    this.tangram.objects[i].enableNormalViz();
+                }
+            }
+            else {
+                this.objects[this.selectedObject].enableNormalViz();
+            }
+        else {
+            if (this.selectedObject == 3) {
+                for (var i = 0; i < this.tangram.objects.length; i++) {
+                    this.tangram.objects[i].disableNormalViz();
+                }
+            }
+            else {
+                this.objects[this.selectedObject].disableNormalViz();
+            }
+        }
+
         
         this.objects[this.selectedObject].display();
         this.popMatrix();
