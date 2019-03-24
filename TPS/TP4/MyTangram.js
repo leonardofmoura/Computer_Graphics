@@ -8,6 +8,7 @@ class MyTangram extends CGFobject {
         super(scene);
         
         this.init();
+        this.initMaterials();
     }
     init() {
         //create objects
@@ -16,14 +17,15 @@ class MyTangram extends CGFobject {
         this.parallelogram = new MyParallelogram(this.scene);
         this.triangle = new MyTriangle(this.scene);
         this.striangle = new MyTriangleSmall(this.scene);
-
+    }
+    initMaterials() {
         //create material
         this.tangMaterial = new CGFappearance(this.scene);
         this.tangMaterial.setAmbient(0.1, 0.1, 0.1, 1);
         this.tangMaterial.setDiffuse(0.9, 0.9, 0.9, 1);
         this.tangMaterial.setSpecular(0.1, 0.1, 0.1, 1);
         this.tangMaterial.setShininess(10.0);
-        this.tangMaterial.loadTexture('images/tangram.png');
+        this.tangMaterial.loadTexture('images/tangram-pattern.jpg');
         this.tangMaterial.setTextureWrap('REPEAT', 'REPEAT');
     }
     display() {
@@ -46,6 +48,7 @@ class MyTangram extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(0.0, (2-Math.sqrt(2)), 0.0);
         this.scene.rotate(Math.PI/2, 0.0, 0.0, 1.0);
+        this.btriangle.swapTex1();
         this.btriangle.display();
         this.scene.popMatrix();
 
@@ -53,6 +56,7 @@ class MyTangram extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(Math.sqrt(2), Math.sqrt(2), 0.0);
         this.scene.rotate(3*Math.PI/4, 0.0, 0.0, 1.0);
+        this.btriangle.swapTex2();
         this.btriangle.display();
         this.scene.popMatrix();
 
@@ -74,6 +78,7 @@ class MyTangram extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate(-2*Math.sqrt(2), -Math.sqrt(2), 0.0);
         this.scene.rotate(Math.PI/4, 0.0, 0.0, 1.0);
+        this.striangle.swapTex1();
         this.striangle.display();
         this.scene.popMatrix();
 
@@ -81,6 +86,7 @@ class MyTangram extends CGFobject {
         this.scene.pushMatrix();
         this.scene.translate( Math.sqrt(2), -2*Math.sqrt(2), 0.0);
         this.scene.rotate(3*Math.PI/4, 0.0, 0.0, 1.0);
+        this.striangle.swapTex2();
         this.striangle.display();
         this.scene.popMatrix();
     }
