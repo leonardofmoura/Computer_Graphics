@@ -1,4 +1,4 @@
-# FEUP-CGRA
+# Computer Graphics
 Repository created to host projects elaborated in the Computer Graphics course.
 
 The course focuses in computer graphics concepts using the WebCGF library based in WebGL.
